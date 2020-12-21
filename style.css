@@ -1,0 +1,119 @@
+body {
+    height: 100%;   
+    background-image: url(resources/earth.jpg); 
+    background-size: cover; 
+}
+
+body main{
+    height: 100%;
+    margin: 0; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+    font-family: Helvetica, Arial, sans-serif;    
+    color: #fff;
+}
+
+body main hr{
+    width: 97%;
+    color: #fff;
+}
+
+
+.cityList{
+    margin: 40px 20px 0 20px;
+    width: calc(60% - 100px);
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #fff;
+}
+
+.cityList a:active, a:visited, a:hover, a:link{
+    text-decoration: none;
+    color: #000;
+    outline: none;
+}
+
+.cityList div img{
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.cityList div h3{
+    text-align: center;
+    cursor: pointer;
+    color: #000;    
+}
+
+.cityList > div:nth-child(4) > a > h3{
+    margin-bottom: 0;
+}
+
+.cityList > div:nth-child(5) > a > h3{
+    margin-bottom: 0;
+}
+
+.cityList > div:nth-child(6) > a > h3{
+    margin-bottom: 0;
+}
+
+@media (max-width:1024px) {
+
+    .cityList{
+        display: flex;
+        justify-content: center;
+        width: 70%;
+    }
+
+    .cityList div img{
+        width: 250px;
+        height: 250px;
+    }
+
+    main h1{
+        text-align: center;
+    }
+
+    .cityList > div:nth-child(4) > a > h3{
+        margin-bottom: 18.7167px;
+    }
+
+    .cityList > div:nth-child(5) > a > h3{
+        margin-bottom: 18.7167px;
+    }
+
+    .cityList > div:nth-child(6) > a > h3{
+        margin-bottom: 0;
+    }
+
+}
+
+@media (min-width: 600px) and (max-width:1024px) {
+
+    .cityList{
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 20px 0px 20px 0px;
+    }
+
+    .cityList > div:nth-child(4) > a > h3{
+        margin-bottom: 18.7167px;
+    }
+
+    .cityList > div:nth-child(5) > a > h3{
+        margin-bottom: 0;
+    }
+
+    .cityList > div:nth-child(6) > a > h3{
+        margin-bottom: 0;
+    }
+
+}
