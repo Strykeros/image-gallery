@@ -1,11 +1,13 @@
 // Get the modal
 var modal = document.getElementById("myModal");
-let slideIndex = 1;
+let slideIndex;
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("mySlides");
 var modalImg = document.getElementById("tokyoimg");
 //var captionText = document.getElementById("caption");
 var slides = document.getElementsByClassName("mySlides2");
+
+let image2 = document.getElementsByClassName("image2")[0];
 
 // Go through all of the images with our custom class
 for (var i = 0; i < images.length; i++) {
@@ -30,7 +32,9 @@ span.onclick = function() {
 
 // slideshow 
 
-
+image2.onclick = function(){
+  slideIndex = 2;
+}
 
 showSlides(slideIndex);
 
