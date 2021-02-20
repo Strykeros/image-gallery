@@ -1,6 +1,6 @@
 // Get the modal
 var modal = document.getElementById("myModal");
-let slideIndex;
+
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("mySlides");
 var modalImg = document.getElementById("tokyoimg");
@@ -32,9 +32,17 @@ span.onclick = function() {
 
 // slideshow 
 
-image2.onclick = function(){
-  slideIndex = 2;
+/*image2.onclick = function(){
+
+}*/
+let slideIndex;
+
+function showClickedImg(value){
+  slideIndex = value;
+  return slideIndex;
 }
+
+
 
 showSlides(slideIndex);
 
