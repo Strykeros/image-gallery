@@ -44,7 +44,7 @@ section .images{
     flex-wrap: wrap;
 }
 
-section .images img{
+section .images img:not(.cursor){
     height: 150px;
     width: 150px;
     margin: 10px 0 0 15px;
@@ -74,23 +74,30 @@ section .images img{
 }
 
 .mySlides2{
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 70px;
+    box-sizing: border-box;
 }
 
 .mySlides2 img{
     display: block;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 70% !important;
-    height: 70% !important;
+    width: 90% !important;
+    height: 90% !important;
+    object-fit: contain;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px;  /*Location of the box*/
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -138,18 +145,41 @@ section .images img{
     padding: 8px 12px;
     position: absolute;
     top: 0;
+    margin-left: -70px;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.row {
+    position: relative;
+    /*margin-top: -100px;*/
+    display: flex;
+    overflow-x: scroll;
 }
-
-/* Six columns side by side */
+  
 .column {
-    float: left;
-    width: 16.66%;
+    flex: 33.33%;
+    padding: 5px;
+}
+
+.column .cursor{
+    height: 150px;
+    width: 150px !important;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 /* Position the "next button" to the right */
@@ -159,7 +189,7 @@ section .images img{
 }
 
 /* Add Animation */
-.modal-content, #caption {  
+.zoom {  
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
