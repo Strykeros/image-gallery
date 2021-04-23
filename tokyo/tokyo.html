@@ -5,172 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo</title>
     <link rel="stylesheet" href="tokyo-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="application/javascript" src="../components/react.development.js" defer></script>
+    <script type="application/javascript" src="../components/react-dom.development.js" defer></script>
+    <script type="application/javascript" src="../components/constants.js" defer></script>
+    <script type="application/javascript" src="components/image.component.js" defer></script>
+    <script type="application/javascript" src="components/modalImage.component.js" defer></script>
+    <script type="application/javascript" src="components/modalRow.component.js" defer></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="main.js" defer></script>    
 </head>
 <body>
-    <main>
 
-        <section>
-            <h1>Tokyo</h1> 
-            <hr>
-
-            <p>
-                Japan is divided up into prefectures, or provinces. 
-                Tokyo is on the Pacific coast of Honshu and is a “merged city-prefecture” that is further divided into regions and provinces. 
-                There are thought to be 23 wards in this vast metropolitan area, and in 2016 the total population was about 11,274,641. 
-                These numbers include the historic city’s boundaries, but also its urban sprawl beyond those. 
-                It extends way past this, making accurate population counts somewhat complicated. 
-                It has always been the largest city in Japan and is one of the most prominent cities in the world.
-            </p>
-
-            <div class="images" id="slides">
-                <div onclick="currentSlide(1);">
-                    <img src="tokyoimg1.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(2);">
-                    <img src="tokyoimg2.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(3);">
-                    <img src="tokyoimg3.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(4);">
-                    <img src="tokyoimg4.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(5);">
-                    <img src="tokyoimg5.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(6);">
-                    <img src="tokyoimg6.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(7);">
-                    <img src="tokyoimg7.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(8);">
-                    <img src="tokyoimg8.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(9);">
-                    <img src="tokyoimg9.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(10);">
-                    <img src="tokyoimg10.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(11);">
-                    <img src="tokyoimg11.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-                <div onclick="currentSlide(12);">
-                    <img src="tokyoimg12.jpg" alt="tokyo" id="tokyoimg" class="mySlides">
-                </div>
-
-                <div id="myModal" class="modal">
-                    <span class="close">&times;</span>
-                    <div class="mySlides2">
-                        <div class="numbertext">1 / 12</div>
-                        <img src="tokyoimg1.jpg">
-                      </div>
-                    
-                      <div class="mySlides2">
-                        <div class="numbertext">2 / 12</div>
-                        <img src="tokyoimg2.jpg">
-                      </div>
-                    
-                      <div class="mySlides2">
-                        <div class="numbertext">3 / 12</div>
-                        <img src="tokyoimg3.jpg" >
-                      </div>
-                        
-                      <div class="mySlides2">
-                        <div class="numbertext">4 / 12</div>
-                        <img src="tokyoimg4.jpg">
-                      </div>
-                    
-                      <div class="mySlides2">
-                        <div class="numbertext">5 / 12</div>
-                        <img src="tokyoimg5.jpg">
-                      </div>
-                        
-                      <div class="mySlides2">
-                        <div class="numbertext">6 / 12</div>
-                        <img src="tokyoimg6.jpg">
-                      </div>    
-
-                      <div class="mySlides2">
-                        <div class="numbertext">7 / 12</div>
-                        <img src="tokyoimg7.jpg">
-                      </div> 
-
-                      <div class="mySlides2">
-                        <div class="numbertext">8 / 12</div>
-                        <img src="tokyoimg8.jpg">
-                      </div> 
-
-                      <div class="mySlides2">
-                        <div class="numbertext">9 / 12</div>
-                        <img src="tokyoimg9.jpg">
-                      </div> 
-
-                      <div class="mySlides2">
-                        <div class="numbertext">10 / 12</div>
-                        <img src="tokyoimg10.jpg">
-                      </div> 
-
-                      <div class="mySlides2">
-                        <div class="numbertext">11 / 12</div>
-                        <img src="tokyoimg11.jpg">
-                      </div> 
-
-                      <div class="mySlides2">
-                        <div class="numbertext">12 / 12</div>
-                        <img src="tokyoimg12.jpg">
-                      </div> 
-
-                      <div class="row">
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg1" src="tokyoimg1.jpg" style="width:100%" onclick="currentSlide(1);" alt="The Woods">
-                        </div>
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg2" src="tokyoimg2.jpg" style="width:100%" onclick="currentSlide(2);" alt="Cinque Terre">
-                        </div>
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg3" src="tokyoimg3.jpg" style="width:100%" onclick="currentSlide(3);" alt="Mountains and fjords">
-                        </div>
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg4" src="tokyoimg4.jpg" style="width:100%" onclick="currentSlide(4);" alt="Northern Lights">
-                        </div>
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg5" src="tokyoimg5.jpg" style="width:100%" onclick="currentSlide(5);" alt="Nature and sunrise">
-                        </div>    
-                        <div class="column">
-                          <img class="demo cursor" id="slideimg6" src="tokyoimg6.jpg" style="width:100%" onclick="currentSlide(6);" alt="Snowy Mountains">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg7" src="tokyoimg7.jpg" style="width:100%" onclick="currentSlide(7);" alt="The Woods">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg8" src="tokyoimg8.jpg" style="width:100%" onclick="currentSlide(8);" alt="Cinque Terre">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg9" src="tokyoimg9.jpg" style="width:100%" onclick="currentSlide(9);" alt="Mountains and fjords">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg1" src="tokyoimg10.jpg" style="width:100%" onclick="currentSlide(10);" alt="Northern Lights">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg1" src="tokyoimg11.jpg" style="width:100%" onclick="currentSlide(11);" alt="Nature and sunrise">
-                        </div>    
-                        <div class="column">
-                            <img class="demo cursor" id="slideimg1" src="tokyoimg12.jpg" style="width:100%" onclick="currentSlide(12);" alt="Snowy Mountains">
-                        </div>
-                      </div>
-
-                    <button class="prev" onclick="plusSlides(-1);">❮</button>
-                    <button class="next" onclick="plusSlides(1);">❯</button>
-                    
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
 </body>
 </html>
