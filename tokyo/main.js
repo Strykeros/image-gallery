@@ -106,62 +106,6 @@ function initializeSectionHeader(){
   section.appendChild(p);
 }
 
-function rowEvents(index){
-  var curYPos = 0;
-  var curXPos = 0;
-  var curDown = false;
-  const delta = 6;
-  let startX;
-  let startY;
-  let scrollLeft;
-
-  $(modalRow).on("mousemove", function (e) {
-    if (curDown === true) {
-      //$(modalRow).scrollTop(parseInt($(modalRow).scrollTop() + (curYPos - e.pageY)));
-      $(modalRow).scrollLeft(parseInt($(modalRow).scrollLeft() + (curXPos - e.pageX) * 5));
-
-    }
-  });
-
-  $(modalRow).on("mousedown", function (e) { 
-    curDown = true; 
-    curYPos = e.pageY; 
-    curXPos = e.pageX; 
-    e.preventDefault(); 
-  });
-  $(modalRow).on("mouseup", function (e) { 
-    curDown = false; 
-    const diffX = Math.abs(e.pageX - curXPos);
-    const diffY = Math.abs(e.pageY - curYPos);
-  
-    if (diffX < delta && diffY < delta) {
-      let overflowVal = -70;
-      // Click!
-      console.log("click")
-      currentSlide(null, index);
-      /*for(let i = 0; i < 12; i++) {
-          //currentSlide(overflowVal, i);
-
-          modalRow.onclick = function(e){
-            console.log(e.target);
-
-          }          
-          //overflowVal += 70;
-      }
-       /* window.onclick = function(e){
-          console.log(e.target);
-          //e.target.currentSlide(this, this);
-        }*/
-    }
-  });
-  $(modalRow).on("mouseout", function (e) { 
-    curDown = false; 
-  });
-
-  
-} 
-
-
 
 // Swipe Up / Down / Left / Right
 var initialX = null;

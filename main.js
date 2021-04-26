@@ -1,20 +1,56 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+const body = document.querySelector("body");
+let main;
+let section;
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("tyimg1");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
+let hrefs = ["tokyo/tokyo.html", "delhi/delhi.html", "shanghai/shanghai.html", 
+"sao-paulo/sao-paulo.html", "mexico-city/mexico-city.html", "cairo/cairo.html"];
+
+let srcs = ["resources/tokyo.jpg", "resources/delhi.jpg", "resources/shanghai.jpg", 
+"resources/sao-paulo.jpg", "resources/mexico-city.jpg", "resources/cairo.jpg"];
+
+let h3Texts = ["Tokyo", "Delhi", "Shanghai", "Sao Paulo", "Mexico City", "Cairo"]
+
+function initializeCorePage(){
+  main = document.createElement("main");
+  body.appendChild(main);  
+
+  let heading = document.createElement("h1")
+  heading.innerHTML = "Six largest cities in the world";
+  main.appendChild(heading);
+
+  let hr = document.createElement("hr");
+  main.appendChild(hr);
+
 }
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
+function initializeSection(){
+  section = document.createElement("section");
+  section.classList.add("cityList");
+  main.appendChild(section);
 }
+
+function linkContainerList(){
+  const elements = [];
+  for(let i = 0; i <  6; i++) {
+    elements.push({href: hrefs[i], Src: srcs[i], HeaderHref: hrefs[i], h3Text: h3Texts[i]});
+  }
+
+  return (
+      elements.map((elem) => (
+        ele(LinkContainer, elem)
+      ))
+  );
+}
+
+function initializeLinkContainer(){
+  ReactDOM.render(
+    [
+      linkContainerList(),
+    ],
+    document.querySelector(".cityList")
+  );
+}
+
+initializeCorePage();
+initializeSection();
+initializeLinkContainer();

@@ -178,7 +178,6 @@ section .images img:not(.cursor){
 
 .row {
     position: relative;
-    /*margin-top: -100px;*/
     display: flex;
     overflow-x: scroll;
 
