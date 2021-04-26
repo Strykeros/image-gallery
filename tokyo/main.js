@@ -12,7 +12,7 @@ let imageArray = ["tokyoimg1.jpg", "tokyoimg2.jpg", "tokyoimg3.jpg", "tokyoimg4.
 "tokyoimg12.jpg"];
 let slideIndex = 1;
 let section;
-
+  let html = document.querySelector("html");
 initializeCorePage();
 initializeModal();
 var slides = document.getElementsByClassName("mySlides2");
@@ -22,7 +22,7 @@ let foreground = document.getElementsByClassName("layer");
 initializeSectionBody();
 // Get the modal
 var modal = document.getElementById("myModal");
-
+addSwipeEvents();
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("mySlides");
 var modalImg = document.getElementById("tokyoimg");
@@ -159,8 +159,60 @@ function rowEvents(index){
   });
 
   
-}
+} 
 
+
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+  initialX = e.touches[0].clientX;
+  initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+  if (initialX === null) {
+    return;
+  }
+
+  if (initialY === null) {
+    return;
+  }
+
+  var currentX = e.touches[0].clientX;
+  var currentY = e.touches[0].clientY;
+
+  var diffX = initialX - currentX;
+  var diffY = initialY - currentY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // sliding horizontally
+    if (diffX > 0) {
+      // swiped left
+      plusSlides(1);
+      //console.log("swiped left");
+    } else {
+      // swiped right
+      plusSlides(-1);
+      //console.log("swiped right");
+    }  
+  }
+
+  if(slideIndex === -1){
+    slideIndex = 12;
+  }
+  if(diffX > 0 && slideIndex === 12){
+    slideIndex = 0;
+    modalRow.scrollLeft = 0;
+  }
+
+  initialX = null;
+  initialY = null;
+
+  e.preventDefault();
+};
 
 function imgList() {
   let overflowVal = -70;
@@ -188,6 +240,11 @@ function initializeSectionBody(){
   );
   initializeSectionHeader(); 
 
+}
+
+function addSwipeEvents(){
+  modal.addEventListener("touchstart", startTouch, false);
+  modal.addEventListener("touchmove", moveTouch, false);
 }
 
 function modalList(){
@@ -266,6 +323,7 @@ var span = document.getElementsByClassName("close")[0];
 function ResetOverflowX(){
   modal.style.display = "none";
   modalRow.scrollLeft = 0;
+  html.classList.remove("noScroll");
 }
 
 let scrollLeftValue = modalRow.scrollLeft.value;
@@ -295,35 +353,45 @@ function plusSlides(n) {
     modalRow.scrollLeft -= 70;
   }
   if(slideIndex === 1){
-    modalBtnPrev.style.visibility = "hidden";
+    modalBtnPrev.disabled = true;
+    modalBtnPrev.classList.add("locked");
   }
   else{
-    modalBtnPrev.style.visibility = "visible";
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
   }
   if(slideIndex === 12){
-    modalBtnNext.style.visibility = "hidden";
+    modalBtnNext.disabled = true;
+    modalBtnNext.classList.add("locked");
   }
   else{
-    modalBtnNext.style.visibility = "visible";
+    modalBtnNext.disabled = false;
+    modalBtnNext.classList.remove("locked");
   }
 
   showSlides(slideIndex);
 }
 
 function currentSlide(scrollVal, n) {
+
+  html.classList.add("noScroll");
   slideIndex = n;
-  console.log(slideIndex);
+  //console.log(slideIndex);
   if(slideIndex === 1){
-    modalBtnPrev.style.visibility = "hidden";
+    modalBtnPrev.disabled = true;
+    modalBtnPrev.classList.add("locked");
   }
   else{
-    modalBtnPrev.style.visibility = "visible";
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
   }
   if(slideIndex === 12){
-    modalBtnNext.style.visibility = "hidden";
+    modalBtnNext.disabled = true;
+    modalBtnNext.classList.add("locked");
   }
   else{
-    modalBtnNext.style.visibility = "visible";
+    modalBtnNext.disabled = false;
+    modalBtnNext.classList.remove("locked");
   }
   if(n > 0){
     modalRow.scrollLeft = scrollVal;
@@ -331,6 +399,7 @@ function currentSlide(scrollVal, n) {
   else{
     modalRow.scrollLeft -= scrollVal;
   }
+
   showSlides(slideIndex = n);  
 
 }
@@ -353,10 +422,21 @@ function showSlides(n) {
       foreground[i].className = foreground[i].className.replace(" selected-layer", ""); 
   }
 
+  if(n > 12){
+    n = 12;
+  }
+
   slides[slideIndex-1].style.display = "flex"; 
   dots[slideIndex-1].className += " active";   
   foreground[slideIndex-1].className += " selected-layer";
-  nrText.innerHTML = n + " / 12";
+
+  if(n === 0){
+    nrText.innerHTML = "12 / " + slides.length;
+  }
+  else{
+    nrText.innerHTML = n + " / " + slides.length;
+  }
+
 
   //captionText.innerHTML = dots[slideIndex-1].alt;
 }
