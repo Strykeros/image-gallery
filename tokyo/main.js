@@ -14,9 +14,9 @@ let menuA;
 let expanded = false;
 let hrefs = ["../index.html", "../delhi/delhi.html", "../shanghai/shanghai.html", 
 "../sao-paulo/sao-paulo.html", "../mexico-city/mexico-city.html", "../cairo/cairo.html"];
-let imageArray = ["tokyoimg1.jpg", "tokyoimg2.jpg", "tokyoimg3.jpg", "tokyoimg4.jpg", "tokyoimg5.jpg",
-"tokyoimg6.jpg", "tokyoimg7.jpg", "tokyoimg8.jpg", "tokyoimg9.jpg", "tokyoimg10.jpg", "tokyoimg11.jpg",
-"tokyoimg12.jpg"];
+let imageArray = ["resources/img1.jpg", "resources/img2.jpg", "resources/img3.jpg", "resources/img4.jpg", "resources/img5.jpg",
+"resources/img6.jpg", "resources/img7.jpg", "resources/img8.jpg", "resources/img9.jpg", "resources/img10.jpg", "resources/img11.jpg",
+"resources/img12.jpg"];
 let menuButtonTexts = ["Home", "Delhi", "Shanghai", "Sao Paulo", "Mexico City", "Cairo"];
 let slideIndex = 1;
 let section;
@@ -34,7 +34,7 @@ var modal = document.getElementById("myModal");
 addSwipeEvents();
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = document.getElementsByClassName("mySlides");
-var modalImg = document.getElementById("tokyoimg");
+var modalImg = document.getElementById("img");
 //var captionText = document.getElementById("caption");
 
 var slideImage = document.querySelectorAll(".mySlides2 img");

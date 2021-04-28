@@ -9,8 +9,8 @@ class Image extends React.Component{
 
         let imgAttributes = {
             className: "mySlides",
-            id: "tokyoimg",
-            alt: "tokyo",
+            id: "img",
+            alt: "image",
             src: this.props.imgSrc
         };
         
