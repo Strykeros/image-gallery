@@ -7,9 +7,17 @@ let modalBtnPrev;
 let modalBtnNext;
 let nrText;
 let closeDiv;
+let main;
+let header;
+let menuWrapperDiv;
+let menuA;  
+let expanded = false;
+let hrefs = ["../index.html", "../delhi/delhi.html", "../shanghai/shanghai.html", 
+"../sao-paulo/sao-paulo.html", "../mexico-city/mexico-city.html", "../cairo/cairo.html"];
 let imageArray = ["tokyoimg1.jpg", "tokyoimg2.jpg", "tokyoimg3.jpg", "tokyoimg4.jpg", "tokyoimg5.jpg",
 "tokyoimg6.jpg", "tokyoimg7.jpg", "tokyoimg8.jpg", "tokyoimg9.jpg", "tokyoimg10.jpg", "tokyoimg11.jpg",
 "tokyoimg12.jpg"];
+let menuButtonTexts = ["Home", "Delhi", "Shanghai", "Sao Paulo", "Mexico City", "Cairo"];
 let slideIndex = 1;
 let section;
   let html = document.querySelector("html");
@@ -20,6 +28,7 @@ initializeModalRow();
 var dots = document.getElementsByClassName("demo");
 let foreground = document.getElementsByClassName("layer");
 initializeSectionBody();
+
 // Get the modal
 var modal = document.getElementById("myModal");
 addSwipeEvents();
@@ -32,7 +41,7 @@ var slideImage = document.querySelectorAll(".mySlides2 img");
 var column = document.querySelectorAll(".cursor");
 
 function initializeCorePage(){
-  let main = document.createElement("main");
+  main = document.createElement("main");
   body.appendChild(main);
 
   section = document.createElement("section");
@@ -91,6 +100,10 @@ function initializemodalChilds(){
 }
 
 function initializeSectionHeader(){
+  header = document.createElement("header");
+  body.appendChild(header);
+  initializeHeaderContent();
+
   let h1 = document.createElement("h1");
   h1.innerHTML = "Tokyo";
   section.appendChild(h1);
@@ -104,6 +117,56 @@ function initializeSectionHeader(){
   "These numbers include the historic city’s boundaries, but also its urban sprawl beyond those. It extends way past this, making accurate population counts somewhat complicated. "+
   "It has always been the largest city in Japan and is one of the most prominent cities in the world.";
   section.appendChild(p);
+}
+
+function initializeHeaderContent(){
+  let h1 = document.createElement("h1");
+  h1.innerHTML = "Image Gallery";
+  header.appendChild(h1); 
+
+  let menu = document.createElement("div");
+  menu.classList.add("menu");
+  menu.classList.add("hide-menu");
+  header.appendChild(menu);
+
+  let i = document.createElement("i");
+  i.innerHTML = "menu";
+  i.addEventListener("click", toggleMenu.bind(null, null), false);
+  i.classList.add("menu-button");
+  i.classList.add("material-icons");
+  header.appendChild(i);
+
+  initializeMenuContent();
+}
+
+function toggleMenu(){
+  let menu = document.querySelector(".menu");
+  let menuButton = document.querySelector(".menu-button");
+
+  menu.classList.toggle("hide-menu");
+
+  // change icon of "menuButton" on-click
+  menuButton.innerHTML = "close";
+  if(menu.classList.contains("hide-menu")){
+      menuButton.innerHTML = "menu";
+  } else{
+      menuButton.innerHTML = "close";
+  }
+}
+
+function initializeMenuContent(){
+  let menu = document.querySelector(".menu");
+  for(i = 0; i < menuButtonTexts.length; i++){
+    menuWrapperDiv = document.createElement("div");
+    menuWrapperDiv.classList.add("menuItemWrapper");
+    menu.appendChild(menuWrapperDiv);
+
+    let menuA = document.createElement("a");
+    menuA.classList.add("menuItem");
+    menuA.href = hrefs[i];
+    menuA.innerHTML = menuButtonTexts[i];
+    menuWrapperDiv.appendChild(menuA);  
+  }
 }
 
 

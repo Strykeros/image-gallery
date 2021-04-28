@@ -32,7 +32,7 @@ function initializeSection(){
 function linkContainerList(){
   const elements = [];
   for(let i = 0; i <  6; i++) {
-    elements.push({href: hrefs[i], Src: srcs[i], HeaderHref: hrefs[i], h3Text: h3Texts[i]});
+    elements.push({Href: hrefs[i], Src: srcs[i], HeaderHref: hrefs[i], h3Text: h3Texts[i]});
   }
 
   return (

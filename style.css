@@ -5,7 +5,6 @@ html, body{
 }
 
 body {
-  
     background-image: url(resources/earth.jpg); 
     background-size: cover; 
     background-repeat: no-repeat;
@@ -13,7 +12,6 @@ body {
 
 body main{
     height: 100vh;
-    /*margin-top: 200px;*/ 
     display: flex;
     justify-content: center; 
     align-items: center;
