@@ -17,7 +17,7 @@ let hrefs = ["../index.html", "../tokyo/tokyo.html", "../delhi/delhi.html",
 let imageArray = ["resources/img1.jpg", "resources/img2.jpg", "resources/img3.jpg", "resources/img4.jpg", "resources/img5.jpg",
 "resources/img6.jpg", "resources/img7.jpg", "resources/img8.jpg", "resources/img9.jpg", "resources/img10.jpg", "resources/img11.jpg",
 "resources/img12.jpg"];
-let menuButtonTexts = ["Home", "Tokyo", "Delhi", "Sao Paulo", "Mexico City", "Cairo"];
+let menuButtonTexts = ["Home", "Tokyo", "Delhi", "São Paulo", "Mexico City", "Cairo"];
 let slideIndex = 1;
 let section;
   let html = document.querySelector("html");

@@ -12,12 +12,12 @@ let header;
 let menuWrapperDiv;
 let menuA;  
 let expanded = false;
-let hrefs = ["../index.html", "../delhi/delhi.html", "../shanghai/shanghai.html", 
-"../sao-paulo/sao-paulo.html", "../mexico-city/mexico-city.html", "../cairo/cairo.html"];
+let hrefs = ["../index.html", "../tokyo/tokyo.html", "../delhi/delhi.html", 
+"../shanghai/shanghai.html", "../mexico-city/mexico-city.html", "../cairo/cairo.html"];
 let imageArray = ["resources/img1.jpg", "resources/img2.jpg", "resources/img3.jpg", "resources/img4.jpg", "resources/img5.jpg",
 "resources/img6.jpg", "resources/img7.jpg", "resources/img8.jpg", "resources/img9.jpg", "resources/img10.jpg", "resources/img11.jpg",
 "resources/img12.jpg"];
-let menuButtonTexts = ["Home", "Delhi", "Shanghai", "São Paulo", "Mexico City", "Cairo"];
+let menuButtonTexts = ["Home", "Tokyo", "Delhi", "Shanghai", "Mexico City", "Cairo"];
 let slideIndex = 1;
 let section;
   let html = document.querySelector("html");
@@ -105,17 +105,12 @@ function initializeSectionHeader(){
   initializeHeaderContent();
 
   let h1 = document.createElement("h1");
-  h1.innerHTML = "Tokyo";
+  h1.innerHTML = "São Paulo";
   section.appendChild(h1);
   let hr = document.createElement("hr");
   section.appendChild(hr);
   let p = document.createElement("p");
-  p.innerHTML = 
-  "Japan is divided up into prefectures, or provinces. " +
-  "Tokyo is on the Pacific coast of Honshu and is a “merged city-prefecture” that is further divided into regions and provinces. "+
-  "There are thought to be 23 wards in this vast metropolitan area, and in 2016 the total population was about 11,274,641. "+
-  "These numbers include the historic city’s boundaries, but also its urban sprawl beyond those. It extends way past this, making accurate population counts somewhat complicated. "+
-  "It has always been the largest city in Japan and is one of the most prominent cities in the world.";
+  p.innerHTML = "São Paulo is a municipality in the Southeast Region of Brazil. The metropolis is an alpha global city (as listed by the GaWC) and the most populous city in Brazil, the Americas, the Western Hemisphere and the Southern Hemisphere. The city is the capital of the surrounding state of São Paulo, the most populous and wealthiest state in Brazil. It exerts strong international influences in commerce, finance, arts and entertainment. The city's metropolitan area, the Greater São Paulo, ranks as the most populous in Brazil and the 12th most populous on Earth. The process of conurbation between the metropolitan areas located around the Greater São Paulo (Campinas, Santos, Sorocaba and São José dos Campos) created the São Paulo Macrometropolis, a megalopolis with more than 30 million inhabitants, one of the most populous urban agglomerations in the world.";
   section.appendChild(p);
 }
 
