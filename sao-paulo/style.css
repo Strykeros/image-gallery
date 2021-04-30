@@ -390,7 +390,7 @@ section .images img:not(.cursor){
     section:not(.images){
         width: 95% !important;
         height: calc(100vh + 1400px) !important;
-        margin: 450px 0 0 0;
+        margin: 490px 0 0 0;
     }
 
     main{
@@ -407,7 +407,7 @@ section .images img:not(.cursor){
 
 @media (min-width:810px) and (max-width: 824px) {
     main{
-        height: calc(100vh + 1250px) !important;
+        height: calc(100vh + 1350px) !important;
     }
 
     .mySlides2{
@@ -422,12 +422,12 @@ section .images img:not(.cursor){
 
 @media (min-width: 751px) and (max-width: 800px) {
     main{
-        height: calc(100vh + 100px) !important;
+        height: calc(100vh + 150px) !important;
         margin-top: 100px;
     }
 
     section{
-        height: 100vh !important;
+        height: calc(100vh + 100px) !important;
         width: 80% !important;
     }
 
@@ -483,7 +483,7 @@ section .images img:not(.cursor){
 
     section:not(.images){
         width: 90% !important;
-        height: calc(100vh + 700px) !important;
+        height: calc(100vh + 900px) !important;
         margin: 150px 0 0 0 !important;
     }
 
@@ -521,7 +521,7 @@ section .images img:not(.cursor){
     section:not(.images){
         width: 90% !important;
         height: calc(95vh + 100px) !important;
-        margin: 250px 0 0 0 !important;
+        margin: 400px 0 0 0 !important;
     }
 }
 
