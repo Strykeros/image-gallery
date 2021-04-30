@@ -1,6 +1,8 @@
-html, body{
-    height: 100vh;    
+html{
+    min-height: 100vh;
+    padding: 0;
     font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
 }
 
 header{
@@ -10,7 +12,7 @@ header{
     width: 100%;
     order: -1;
     height: 100px;
-    background-color: orange;
+    background-color: rgb(133,187,101);
     box-shadow: 0 0 5px #000;
     padding-left: 15px;
     box-sizing: border-box;
@@ -23,7 +25,7 @@ header{
     font-size: 22px;
     justify-content: space-evenly;
     color: #fff;
-    background-color: orange;
+    background-color: rgb(133,187,101);
     height: 100%;
     width: 40%;
     order: 3;
@@ -68,12 +70,15 @@ section{
 }
 
 body{
+    overflow-y: scroll;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0;
     background-image: url(resources/background.png);
     background-size: cover;
-    background-position-y: -60px;
+    background-repeat: no-repeat;
+    margin: 0;
+    box-sizing: content-box;
 }
 
 section hr{
@@ -329,6 +334,10 @@ section .images img:not(.cursor){
         top: 0;
     }
 
+    .modal{
+        overflow-y: hidden;
+    }
+
     .hide-menu{
         opacity: 0;
         height: 0 !important;
@@ -343,7 +352,7 @@ section .images img:not(.cursor){
         align-items: center;
         display: flex;
         flex-direction: column;
-        background-color: rgba(248, 148, 6, 1);
+        background-color: rgba(135, 211, 124, 1);
         box-shadow: 5px 5px 5px #000;
     }
 
@@ -382,14 +391,14 @@ section .images img:not(.cursor){
     }
 
     main{
-        margin: 400px 0 0 0 !important;        
+        height: calc(100vh + 850px) !important;   
     }
 
 }
 
-@media (min-width:810px) and (max-width: 820px) {
+@media (min-width:810px) and (max-width: 823px) {
     main{
-        margin-top: 650px;
+        height: calc(100vh + 1250px) !important;
     }
 
     .mySlides2{
@@ -397,6 +406,7 @@ section .images img:not(.cursor){
     }
 
     section{
+        margin-top: 200px;
         height: 380% !important;
     }
 }
@@ -419,10 +429,6 @@ section .images img:not(.cursor){
         margin: 0 0 10px 0 !important;
     }
 
-    main{
-        margin-top: 400px;
-    }
-
     .row, .prev, .next{
         visibility: hidden;
     }
@@ -439,6 +445,16 @@ section .images img:not(.cursor){
 }
 
 @media (max-width: 380px) {
+
+    body{
+        margin: 0;
+    }
+
+    main{
+       height: calc(100vh + 1200px) !important;        
+    }
+ 
+
     .images img{
         width: 120px !important;
         height: 120px !important;
