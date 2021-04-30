@@ -371,6 +371,10 @@ section .images img:not(.cursor){
 
 @media (min-width: 400px) and (max-width: 750px){
 
+    html{
+        height: calc(100vh + 1500px) !important;
+    }
+
     .mySlides2{
         height: 100%;
     }
@@ -386,17 +390,23 @@ section .images img:not(.cursor){
 
     section:not(.images){
         width: 95% !important;
-        height: calc(100vh + 650px) !important;
-        margin: 100px 0 0 0;
+        height: calc(100vh + 1400px) !important;
+        margin: 450px 0 0 0;
     }
 
     main{
         height: calc(100vh + 850px) !important;   
     }
-
 }
 
-@media (min-width:810px) and (max-width: 823px) {
+
+@media (min-width: 411px) and (max-width: 411px){
+    section:not(.images){
+        margin: 150px 0 0 0 !important;
+    }
+}
+
+@media (min-width:810px) and (max-width: 824px) {
     main{
         height: calc(100vh + 1250px) !important;
     }
@@ -413,16 +423,23 @@ section .images img:not(.cursor){
 
 @media (min-width: 751px) and (max-width: 800px) {
     main{
-        margin-top: 400px;
+        height: calc(100vh + 100px) !important;
+        margin-top: 100px;
     }
 
     section{
-        height: 140% !important;
+        height: 100vh !important;
         width: 80% !important;
     }
+
+    .mySlides2{
+        height: 100%;
+    }
+
 }
 
 @media (max-width: 420px){
+
     .images img{
         width: 140px !important;
         height: 140px !important;
@@ -477,6 +494,11 @@ section .images img:not(.cursor){
 }
 
 @media (min-width: 830px) and (max-width: 1300px) {
+
+    html{
+        height: calc(100vh + 200px) !important;
+    }
+
     .row{
         height: 0;
         width: 0;
