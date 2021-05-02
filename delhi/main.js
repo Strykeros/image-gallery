@@ -345,8 +345,6 @@ showSlides(slideIndex);
 
 function plusSlides(n) {
   slideIndex += n; 
-  var maxScrollLeft = modalRow.scrollWidth - modalRow.clientWidth;
-  var maxScrollRight = modalRow.scrollWidth + modalRow.clientWidth;
   if(n > 0){
     modalRow.scrollLeft += 70;
 
@@ -354,6 +352,7 @@ function plusSlides(n) {
   else {
     modalRow.scrollLeft -= 70;
   }
+
   if(slideIndex === 1){
     modalBtnPrev.disabled = true;
     modalBtnPrev.classList.add("locked");
@@ -362,7 +361,21 @@ function plusSlides(n) {
     modalBtnPrev.disabled = false;
     modalBtnPrev.classList.remove("locked");
   }
-  if(slideIndex === 12){
+  if(slideIndex === 13 && screen.width < 1281){
+    modalBtnNext.disabled = false;
+    modalBtnNext.classList.remove("locked");
+    slideIndex = 1;
+    showSlides(slideIndex);
+    return;
+  }
+  if(slideIndex === 1 && screen.width < 1281){
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
+  }
+
+  if(slideIndex === 12 && screen.width > 1281){
     modalBtnNext.disabled = true;
     modalBtnNext.classList.add("locked");
   }
@@ -371,30 +384,47 @@ function plusSlides(n) {
     modalBtnNext.classList.remove("locked");
   }
 
-  showSlides(slideIndex);
+  showSlides(slideIndex); 
+
 }
 
-function currentSlide(scrollVal, n) {
-
+function currentSlide(scrollVal, n, caller) {
   html.classList.add("noScroll");
   slideIndex = n;
-  //console.log(slideIndex);
-  if(slideIndex === 1){
-    modalBtnPrev.disabled = true;
-    modalBtnPrev.classList.add("locked");
-  }
-  else{
-    modalBtnPrev.disabled = false;
-    modalBtnPrev.classList.remove("locked");
-  }
-  if(slideIndex === 12){
-    modalBtnNext.disabled = true;
-    modalBtnNext.classList.add("locked");
-  }
-  else{
+  console.log(caller);
+
+  if(slideIndex === 12 && screen.width < 1281){
     modalBtnNext.disabled = false;
     modalBtnNext.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
   }
+  if(slideIndex === 1 && screen.width < 1281){
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
+  } 
+
+    if(slideIndex === 1){
+      modalBtnPrev.disabled = true;
+      modalBtnPrev.classList.add("locked");
+    }
+    else{
+      modalBtnPrev.disabled = false;
+      modalBtnPrev.classList.remove("locked");
+    }
+    if(slideIndex === 12){
+      modalBtnNext.disabled = true;
+      modalBtnNext.classList.add("locked");
+    }
+    else{
+      modalBtnNext.disabled = false;
+      modalBtnNext.classList.remove("locked");
+    }
+
+
+
   if(n > 0){
     modalRow.scrollLeft = scrollVal;
   }

@@ -473,6 +473,8 @@ section .images img:not(.cursor){
     }
 }
 
+
+
 @media (min-width: 830px) and (max-width: 1300px) {
     .row{
         height: 0;
@@ -498,6 +500,16 @@ section .images img:not(.cursor){
         width: 90% !important;
         height: calc(95vh + 100px) !important;
         margin: 300px 0 0 0 !important;
+    }
+}
+
+@media(height: 720px) and (width: 1280px){
+    .row{
+        visibility: hidden;
+    }
+
+    .prev, .next{
+        visibility: visible;
     }
 }
 

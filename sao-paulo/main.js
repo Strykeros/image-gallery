@@ -115,9 +115,14 @@ function initializeSectionHeader(){
 }
 
 function initializeHeaderContent(){
+  let a = document.createElement("a");
+  a.href = hrefs[0];
+  a.classList.add("home-link");
+  header.appendChild(a);
+
   let h1 = document.createElement("h1");
   h1.innerHTML = "Image Gallery";
-  header.appendChild(h1); 
+  a.appendChild(h1); 
 
   let menu = document.createElement("div");
   menu.classList.add("menu");
@@ -221,7 +226,7 @@ function imgList() {
   const elements = [];
 
   for(let i = 0; i < 12; i++) {
-      elements.push({imgSrc: imageArray[i], imgFunc: currentSlide.bind(null, overflowVal, i + 1)});
+      elements.push({imgSrc: imageArray[i], imgFunc: currentSlide.bind(null, overflowVal, i + 1, "image")});
       overflowVal += 70;
   }
 
@@ -280,7 +285,7 @@ function modalRowList() {
   let overflowVal = -70;
 
   for(let i = 0; i < 12; i++) {
-      modalRowElements.push({imgSrc: imageArray[i], imgFunc: currentSlide.bind(null, overflowVal, i + 1)});
+      modalRowElements.push({imgSrc: imageArray[i], imgFunc: currentSlide.bind(null, overflowVal, i + 1, "image")});
       overflowVal += 70;
   }
 
@@ -345,8 +350,6 @@ showSlides(slideIndex);
 
 function plusSlides(n) {
   slideIndex += n; 
-  var maxScrollLeft = modalRow.scrollWidth - modalRow.clientWidth;
-  var maxScrollRight = modalRow.scrollWidth + modalRow.clientWidth;
   if(n > 0){
     modalRow.scrollLeft += 70;
 
@@ -354,6 +357,7 @@ function plusSlides(n) {
   else {
     modalRow.scrollLeft -= 70;
   }
+
   if(slideIndex === 1){
     modalBtnPrev.disabled = true;
     modalBtnPrev.classList.add("locked");
@@ -362,7 +366,21 @@ function plusSlides(n) {
     modalBtnPrev.disabled = false;
     modalBtnPrev.classList.remove("locked");
   }
-  if(slideIndex === 12){
+  if(slideIndex === 13 && screen.width < 1281){
+    modalBtnNext.disabled = false;
+    modalBtnNext.classList.remove("locked");
+    slideIndex = 1;
+    showSlides(slideIndex);
+    return;
+  }
+  if(slideIndex === 1 && screen.width < 1281){
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
+  }
+
+  if(slideIndex === 12 && screen.width > 1281){
     modalBtnNext.disabled = true;
     modalBtnNext.classList.add("locked");
   }
@@ -371,30 +389,47 @@ function plusSlides(n) {
     modalBtnNext.classList.remove("locked");
   }
 
-  showSlides(slideIndex);
+  showSlides(slideIndex); 
+
 }
 
-function currentSlide(scrollVal, n) {
-
+function currentSlide(scrollVal, n, caller) {
   html.classList.add("noScroll");
   slideIndex = n;
-  //console.log(slideIndex);
-  if(slideIndex === 1){
-    modalBtnPrev.disabled = true;
-    modalBtnPrev.classList.add("locked");
-  }
-  else{
-    modalBtnPrev.disabled = false;
-    modalBtnPrev.classList.remove("locked");
-  }
-  if(slideIndex === 12){
-    modalBtnNext.disabled = true;
-    modalBtnNext.classList.add("locked");
-  }
-  else{
+  console.log(caller);
+
+  if(slideIndex === 12 && screen.width < 1281){
     modalBtnNext.disabled = false;
     modalBtnNext.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
   }
+  if(slideIndex === 1 && screen.width < 1281){
+    modalBtnPrev.disabled = false;
+    modalBtnPrev.classList.remove("locked");
+    showSlides(slideIndex);
+    return;
+  } 
+
+    if(slideIndex === 1){
+      modalBtnPrev.disabled = true;
+      modalBtnPrev.classList.add("locked");
+    }
+    else{
+      modalBtnPrev.disabled = false;
+      modalBtnPrev.classList.remove("locked");
+    }
+    if(slideIndex === 12){
+      modalBtnNext.disabled = true;
+      modalBtnNext.classList.add("locked");
+    }
+    else{
+      modalBtnNext.disabled = false;
+      modalBtnNext.classList.remove("locked");
+    }
+
+
+
   if(n > 0){
     modalRow.scrollLeft = scrollVal;
   }

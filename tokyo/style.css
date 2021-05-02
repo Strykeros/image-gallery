@@ -322,7 +322,7 @@ section .images img:not(.cursor){
     } 
 }
 
-@media (min-width: 300px) and (max-width: 1370px){
+@media (min-width: 300px) and (max-width: 1270px){
     header{
         position: fixed;
         top: 0;
@@ -456,7 +456,7 @@ section .images img:not(.cursor){
     }
 }
 
-@media (min-width: 830px) and (max-width: 1300px) {
+@media (min-width: 830px) and (max-width: 1280px) {
     .row{
         height: 0;
         width: 0;
@@ -465,7 +465,7 @@ section .images img:not(.cursor){
         left: 0;
     }
 
-    .row, .prev, .next{
+    .row{
         visibility: hidden;
     }
 
